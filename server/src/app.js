@@ -1,12 +1,17 @@
-const express=require('express'),
-      cors=require('cors'),
-      bodyParser=require('body-parser'),
-      morgan=require('morgan')
+const express = require('express')
+const cors = require('cors')
+const bodyParser = require('body-parser')
+const morgan = require('morgan')
 
-const app=express()
-app.use(morgan('combine'))
+const app = express()
+app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
+app.get('/list', (req, res) => {
+  res.send({
+    message: 'hello world!'
+  })
+})
 
-app.listen(process.env.PORT||8081)
+app.listen(process.env.PORT || 8081)
